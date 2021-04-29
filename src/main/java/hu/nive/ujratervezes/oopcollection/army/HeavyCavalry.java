@@ -12,12 +12,11 @@ public final class HeavyCavalry extends MilitaryUnit {
 
     @Override
     public int doDamage() {
-        int dealtDamage = damage;
         if (isCharging) {
-            dealtDamage *= 3;
             isCharging = false;
+            return super.doDamage()*3;
+        } else {
+            return super.doDamage();
         }
-
-        return dealtDamage;
     }
 }
